@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061610657826490046}
   m_Layer: 0
-  m_Name: GreedVar0
+  m_Name: GridVar0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

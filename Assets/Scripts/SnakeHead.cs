@@ -7,7 +7,7 @@ public class SnakeHead : MonoBehaviour
 {
     public Game Game;
 
-    public float ForwardSpeed = 5;
+    public float ForwardSpeed;
     public float Sensitivity = 10;
     public int Length = 5;
 
@@ -35,7 +35,7 @@ public class SnakeHead : MonoBehaviour
         _mainCamera = Camera.main;
         _snakeRigidBody = GetComponent<Rigidbody>();
         _snakeTail = GetComponent<SnakeTail>();
-
+  
         for (int i = 0; i < Length; i++) _snakeTail.AddBodyPart();
  
         PartsAmountText.SetText(Length.ToString());

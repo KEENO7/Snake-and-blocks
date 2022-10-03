@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    public SnakeHead
-        SnakeMovement;
+    public SnakeHead SnakeHead;
 
     public GameObject WinScreen;
     public GameObject LosScreen;
@@ -55,7 +54,7 @@ public class Game : MonoBehaviour
         if (CurrentState != State.Playing) return;
 
         CurrentState = State.Loose;
-        SnakeMovement.enabled = false;
+        //SnakeHead.enabled = false;
         Debug.Log("Game over!");
         PlayerPrefs.SetInt("Score", 0);
         LosScreen.SetActive(true);
@@ -67,7 +66,8 @@ public class Game : MonoBehaviour
     {
         if (CurrentState != State.Playing) return;
         CurrentState = State.Win;
-        SnakeMovement.enabled = false;
+        SnakeHead.ForwardSpeed = 0;
+        SnakeHead.Sensitivity = 0;
         LevelIndex++;
         Debug.Log("Stage cleared!");
         WinScreen.SetActive(true);

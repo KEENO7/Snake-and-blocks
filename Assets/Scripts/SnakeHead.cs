@@ -8,7 +8,7 @@ public class SnakeHead : MonoBehaviour
     public Game Game;
 
     public float ForwardSpeed;
-    public float Sensitivity = 10;
+    public float Sensitivity;
     public int Length = 5;
 
     public TextMeshPro PartsAmountText;
@@ -85,6 +85,7 @@ public class SnakeHead : MonoBehaviour
     {
         Game.OnReachedFinish();
         _snakeRigidBody.velocity = Vector3.zero;
+
     }
 
 

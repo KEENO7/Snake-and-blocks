@@ -15,7 +15,7 @@ public class SnakeHead : MonoBehaviour
 
     private Camera _mainCamera;
     private Rigidbody _snakeRigidBody;
-    private SnakeTail _snakeTail;
+    internal SnakeTail _snakeTail;
 
     private Vector3 _touchLastPos;
     private float _sidewaysSpeed;
@@ -81,13 +81,13 @@ public class SnakeHead : MonoBehaviour
         _sidewaysSpeed = 0;
     }
 
+
     public void ReachFinish()
     {
         Game.OnReachedFinish();
         _snakeRigidBody.velocity = Vector3.zero;
 
     }
-
 
     public void Die()
     {

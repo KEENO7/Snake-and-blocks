@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BonusParts : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TextMeshPro BonusPartsText;
+    public int Parts;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        BonusPartsText.SetText(Parts.ToString());
+        Parts = Random.Range(1, 10);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out SnakeHead snake))
+        {
+            snake.Length += Parts;
+            snake._snakeTail.AddBodyPart();
+            Destroy(gameObject);
+        }
+
     }
 }

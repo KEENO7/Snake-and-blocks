@@ -6,21 +6,13 @@ using TMPro;
 public class BonusParts : MonoBehaviour
 {
     public TextMeshPro BonusPartsText;
-    public int Parts;
+    internal int Parts;
 
     private void Start()
-    {
+    {      
+        Parts = Random.Range(3, 10);
         BonusPartsText.SetText(Parts.ToString());
-        Parts = Random.Range(1, 10);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out SnakeHead snake))
-        {
-            snake.Length += Parts;
-            snake._snakeTail.AddBodyPart();
-            Destroy(gameObject);
-        }
 
     }
+
 }

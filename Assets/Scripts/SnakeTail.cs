@@ -8,8 +8,8 @@ public class SnakeTail : MonoBehaviour
     public Transform SnakePart;
     public float CircleDiameter;
 
-    private List<Transform> _bodyParts = new List<Transform>();
-    private List<Vector3> _positions = new List<Vector3>();
+    internal List<Transform> _bodyParts = new List<Transform>();
+    internal List<Vector3> _positions = new List<Vector3>();
 
     void Start()
     {
@@ -47,6 +47,6 @@ public class SnakeTail : MonoBehaviour
     {
         Destroy(_bodyParts[0].gameObject);
         _bodyParts.RemoveAt(0);
-        _positions.RemoveAt(1);
+        _positions.RemoveAt(_positions.Count -1);
     }
 }

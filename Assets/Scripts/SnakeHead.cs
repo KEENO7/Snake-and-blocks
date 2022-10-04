@@ -9,7 +9,7 @@ public class SnakeHead : MonoBehaviour
 
     public float ForwardSpeed;
     public float Sensitivity;
-    public int Length = 5;
+    public int Length = 1;
 
     public TextMeshPro PartsAmountText;
 
@@ -19,6 +19,9 @@ public class SnakeHead : MonoBehaviour
 
     private Vector3 _touchLastPos;
     private float _sidewaysSpeed;
+
+    public BonusParts BP;
+    public Obstacle Obstacle;
 
     public GameObject Shreds;
     public int Score
@@ -59,18 +62,6 @@ public class SnakeHead : MonoBehaviour
             _touchLastPos = _mainCamera.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Length++;
-            _snakeTail.AddBodyPart();
-            PartsAmountText.SetText(Length.ToString());
-        }
-        if(Input.GetKeyDown(KeyCode.D))
-        {
-            Length--;
-            _snakeTail.RemoveBodyPart();
-            PartsAmountText.SetText(Length.ToString());
-        }
     }
 
     private void FixedUpdate()
@@ -81,6 +72,37 @@ public class SnakeHead : MonoBehaviour
         _sidewaysSpeed = 0;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out BonusParts parts))
+        {
+            Length += BP.Parts;
+            Destroy(parts.gameObject);
+            for (int i = 0; i < Length; i++) _snakeTail.AddBodyPart();
+
+            PartsAmountText.SetText(Length.ToString());
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.TryGetComponent(out Obstacle obstacle))
+        {
+            Length --;
+            for (int i = _snakeTail._bodyParts.Count; i > Length; i--) _snakeTail.RemoveBodyPart();
+            PartsAmountText.SetText(Length.ToString());
+
+            obstacle.MinusParts--;
+            obstacle.MinusPartsText.SetText(obstacle.MinusParts.ToString());
+
+            if (obstacle.MinusParts == 0)
+            {
+              Destroy(obstacle.gameObject);
+            }
+        }
+
+    }
 
     public void ReachFinish()
     {

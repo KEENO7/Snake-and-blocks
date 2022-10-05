@@ -7,9 +7,15 @@ public class SnakeHead : MonoBehaviour
 {
     public Game Game;
 
+<<<<<<< Updated upstream
     public float ForwardSpeed = 5;
     public float Sensitivity = 10;
     public int Length = 5;
+=======
+    public float ForwardSpeed;
+    public float Sensitivity;
+    public int Length;
+>>>>>>> Stashed changes
 
     public TextMeshPro PartsAmountText;
 
@@ -20,6 +26,13 @@ public class SnakeHead : MonoBehaviour
     private Vector3 _touchLastPos;
     private float _sidewaysSpeed;
 
+<<<<<<< Updated upstream
+=======
+    public BonusParts BP;
+    public Obstacle Obstacle;
+    public GameObject PickUpsPool;
+
+>>>>>>> Stashed changes
     public GameObject Shreds;
     public int Score
     {
@@ -35,8 +48,13 @@ public class SnakeHead : MonoBehaviour
         _mainCamera = Camera.main;
         _snakeRigidBody = GetComponent<Rigidbody>();
         _snakeTail = GetComponent<SnakeTail>();
+<<<<<<< Updated upstream
 
         for (int i = 0; i < Length; i++) _snakeTail.AddBodyPart();
+=======
+  
+        for (int i = _snakeTail._bodyParts.Count; i < Length; i++) _snakeTail.AddBodyPart();
+>>>>>>> Stashed changes
  
         PartsAmountText.SetText(Length.ToString());
 
@@ -81,9 +99,53 @@ public class SnakeHead : MonoBehaviour
         _sidewaysSpeed = 0;
     }
 
+<<<<<<< Updated upstream
+=======
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out BonusParts parts))
+        {
+            Length += BP.Parts;
+            Destroy(parts.gameObject);
+            for (int i = _snakeTail._bodyParts.Count; i < Length; i++) _snakeTail.AddBodyPart();
+
+            PartsAmountText.SetText(Length.ToString());
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.TryGetComponent(out Obstacle obstacle))
+        {
+            Length -= 1;
+            Score += 10;
+            if (_snakeTail._bodyParts.Count == 0)
+            {
+             Length = 0;
+                Die();
+            }
+            for (int i = _snakeTail._bodyParts.Count; i > Length; i--) _snakeTail.RemoveBodyPart();
+            PartsAmountText.SetText(Length.ToString());
+
+            obstacle.MinusParts -= 1;
+            obstacle.MinusPartsText.SetText(obstacle.MinusParts.ToString());
+
+            if (obstacle.MinusParts == 0)
+            {
+              Destroy(obstacle.gameObject);
+            }
+
+        }
+
+    }
+
+>>>>>>> Stashed changes
     public void ReachFinish()
     {
         Game.OnReachedFinish();
+        ForwardSpeed = 0;
+        Sensitivity = 0;
         _snakeRigidBody.velocity = Vector3.zero;
     }
 
@@ -91,8 +153,10 @@ public class SnakeHead : MonoBehaviour
     public void Die()
     {
         Game.OnDied();
+        ForwardSpeed = 0;
+        Sensitivity = 0;
         _snakeRigidBody.velocity = Vector3.zero;
-        gameObject.SetActive(false);
+        GameObject.Find("SnakeHead").SetActive(false);
         Shreds.SetActive(true);
         Shreds.transform.position = gameObject.transform.position;
     }

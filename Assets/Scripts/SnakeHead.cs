@@ -20,8 +20,8 @@ public class SnakeHead : MonoBehaviour
     private Vector3 _touchLastPos;
     private float _sidewaysSpeed;
 
-    public BonusParts BP;
     public Obstacle Obstacle;
+    public ObjectPool PickUpsPool;
 
     public GameObject Shreds;
     public int Score
@@ -76,7 +76,7 @@ public class SnakeHead : MonoBehaviour
     {
         if (other.TryGetComponent(out BonusParts parts))
         {
-            Length += BP.Parts;
+            Length += parts.Parts;
             Destroy(parts.gameObject);
             for (int i = _snakeTail._bodyParts.Count; i < Length; i++) _snakeTail.AddBodyPart();
 

@@ -14,7 +14,8 @@ public class LevelGenerator : MonoBehaviour
     public Transform FinishGrid;
     public Transform WayRoot;
     public Game Game;
-    public SnakeHead SnakeHead;
+    public ObjectPool PickUpsPool;
+    public Transform SnakeHead;
 
     private void Awake()
     {
@@ -35,6 +36,18 @@ public class LevelGenerator : MonoBehaviour
 
         WayRoot.localScale = new Vector3(1, 1, GridCount * 1.55f + 0.6f);
 
+    }
+
+    private void Start()
+    {
+        SnakeHead = FindObjectOfType<SnakeHead>().transform;
+        SpawnPickups();
+    }
+
+    private void SpawnPickups()
+    {
+        PickUpsPool.GetObject().transform.position = new Vector3(-6f, 8.9f, SnakeHead.transform.position.z + 250);
+        Invoke("SpawnPickups", 5f);
     }
 
     private int RandomRange(Random random, int min, int maxExclusive)

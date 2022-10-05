@@ -55,10 +55,7 @@ public class Game : MonoBehaviour
         if (CurrentState != State.Playing) return;
 
         CurrentState = State.Loose;
-<<<<<<< Updated upstream
         SnakeMovement.enabled = false;
-=======
->>>>>>> Stashed changes
         Debug.Log("Game over!");
         PlayerPrefs.SetInt("Score", 0);
         LosScreen.SetActive(true);
@@ -70,10 +67,7 @@ public class Game : MonoBehaviour
     {
         if (CurrentState != State.Playing) return;
         CurrentState = State.Win;
-<<<<<<< Updated upstream
         SnakeMovement.enabled = false;
-=======
->>>>>>> Stashed changes
         LevelIndex++;
         Debug.Log("Stage cleared!");
         WinScreen.SetActive(true);

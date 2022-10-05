@@ -3046,6 +3046,9 @@ MonoBehaviour:
   Sensitivity: 2000
   Length: 5
   PartsAmountText: {fileID: 237965271}
+  ScoreText: {fileID: 1978206679}
+  CurrentLevelText: {fileID: 1104641338}
+  NextLevelText: {fileID: 403145092}
   Obstacle: {fileID: -4680850812807656609, guid: 09972e954b431574d80331508e3f7c65, type: 3}
   PickUpsPool: {fileID: 1342815041}
   Shreds: {fileID: 0}
@@ -3312,7 +3315,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 160, y: 70}
+  m_SizeDelta: {x: 500, y: 70}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1978206679
 MonoBehaviour:

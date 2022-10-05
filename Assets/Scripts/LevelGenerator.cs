@@ -47,7 +47,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void SpawnPickups()
     {
-        PickUpsPool.GetObject().transform.position = new Vector3(-6f, 8.9f, SnakeHead.transform.position.z + 300);
+        PickUpsPool.GetObject().transform.position = new Vector3(-6f, 8.9f, SnakeHead.transform.position.z + 260);
         Invoke("SpawnPickups", 5f);
     }
 
@@ -61,6 +61,6 @@ public class LevelGenerator : MonoBehaviour
 
     private Vector3 CalculateGridPosition(int i)
     {
-        return new Vector3(-9f, 8.8f, DistanceBetweenGrids * i);
+        return new Vector3(-9.1f, 8.8f, DistanceBetweenGrids * i);
     }
 }

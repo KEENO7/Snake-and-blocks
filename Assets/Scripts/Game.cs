@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     public GameObject MusicSpring;
 
 
+
     public enum State
     {
         Playing,
@@ -70,6 +71,7 @@ public class Game : MonoBehaviour
         CurrentState = State.Win;
         SnakeHead.ForwardSpeed = 0;
         SnakeHead.Sensitivity = 0;
+        SnakeHead.Score += 50 * SnakeHead._snakeTail._bodyParts.Count;
         LevelIndex++;
         Debug.Log("Stage cleared!");
         WinScreen.SetActive(true);

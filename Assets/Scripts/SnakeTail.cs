@@ -16,7 +16,6 @@ public class SnakeTail : MonoBehaviour
         _positions.Add(SnakeHead.position);
     }
 
-    // Update is called once per frame
     void Update()
     {
         float distance = ((Vector3)SnakeHead.position - _positions[0]).magnitude;

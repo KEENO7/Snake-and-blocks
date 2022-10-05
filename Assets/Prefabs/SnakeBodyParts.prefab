@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 97582679153889030}
   - component: {fileID: 8141007637697098625}
   - component: {fileID: 1320839470080538572}
-  - component: {fileID: 4181133831333935425}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -256,19 +255,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4181133831333935425
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3542041577215913961}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000004, y: 3, z: 1.0000002}
-  m_Center: {x: 0.00000005960466, y: -0.28, z: -0.00000008940697}
 --- !u!1 &4915797451666336266
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5143926434041488655}
   - component: {fileID: -4232293467664879375}
-  - component: {fileID: 781000631560989836}
+  - component: {fileID: -5770975329777777623}
   m_Layer: 0
   m_Name: SnakeBodyParts
   m_TagString: Untagged
@@ -317,7 +303,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15, y: 15, z: 6.4}
   m_Center: {x: 0, y: 0, z: 0.67}
---- !u!114 &781000631560989836
+--- !u!114 &-5770975329777777623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -329,4 +315,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8047db132c0028e48b34ae25284a5b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BonusPartsText: {fileID: 1666663393235788383}
+  BonusPartsTXT: {fileID: 1666663393235788383}
+  Parts: 0

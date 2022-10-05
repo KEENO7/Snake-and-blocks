@@ -5,14 +5,13 @@ using TMPro;
 
 public class BonusParts : MonoBehaviour
 {
-    public TextMeshPro BonusPartsText;
-    internal int Parts;
+    public TextMeshPro BonusPartsTXT;
+    public int Parts;
 
     private void Start()
-    {      
+    {
         Parts = Random.Range(3, 10);
-        BonusPartsText.SetText(Parts.ToString());
-
+        BonusPartsTXT.SetText(Parts.ToString());
     }
 
 }

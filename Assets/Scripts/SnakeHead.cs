@@ -7,9 +7,9 @@ public class SnakeHead : MonoBehaviour
 {
     public Game Game;
 
-    public float ForwardSpeed;
-    public float Sensitivity;
-    public int Length;
+    public float ForwardSpeed = 150;
+    public float Sensitivity = 1000;
+    public int Length = 5;
 
     public TextMeshPro PartsAmountText;
 
@@ -22,7 +22,7 @@ public class SnakeHead : MonoBehaviour
 
     public BonusParts BP;
     public Obstacle Obstacle;
-    public GameObject PickUpsPool;
+    public ObjectPool PickUpsPool;
 
     public GameObject Shreds;
     public int Score
@@ -39,10 +39,7 @@ public class SnakeHead : MonoBehaviour
         _mainCamera = Camera.main;
         _snakeRigidBody = GetComponent<Rigidbody>();
         _snakeTail = GetComponent<SnakeTail>();
-
-        for (int i = 0; i < Length; i++) _snakeTail.AddBodyPart();
-
-  
+ 
         for (int i = _snakeTail._bodyParts.Count; i < Length; i++) _snakeTail.AddBodyPart();
         PartsAmountText.SetText(Length.ToString());
 
@@ -64,7 +61,18 @@ public class SnakeHead : MonoBehaviour
             _sidewaysSpeed += delta.x * Sensitivity;
             _touchLastPos = _mainCamera.ScreenToViewportPoint(Input.mousePosition);
         }
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Length++;
+            _snakeTail.AddBodyPart();
+            PartsAmountText.SetText(Length.ToString());
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Length--;
+            _snakeTail.RemoveBodyPart();
+            PartsAmountText.SetText(Length.ToString());
+        }
     }
 
     private void FixedUpdate()
@@ -95,11 +103,13 @@ public class SnakeHead : MonoBehaviour
         {
             Length -= 1;
             Score += 10;
-            if (_snakeTail._bodyParts.Count == 0)
+
+            if (_snakeTail._bodyParts.Count <= 0)
             {
              Length = 0;
                 Die();
             }
+
             for (int i = _snakeTail._bodyParts.Count; i > Length; i--) _snakeTail.RemoveBodyPart();
             PartsAmountText.SetText(Length.ToString());
 

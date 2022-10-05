@@ -9,7 +9,7 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject[] Prefabs;
 
-    private int index;
+    internal int index;
 
     private void Awake()
     {

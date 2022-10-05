@@ -14,6 +14,7 @@ public class LevelGenerator : MonoBehaviour
     public Transform FinishGrid;
     public Transform WayRoot;
     public Game Game;
+
     public ObjectPool PickUpsPool;
     public Transform SnakeHead;
 
@@ -46,7 +47,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void SpawnPickups()
     {
-        PickUpsPool.GetObject().transform.position = new Vector3(-6f, 8.9f, SnakeHead.transform.position.z + 250);
+        PickUpsPool.GetObject().transform.position = new Vector3(-6f, 8.9f, SnakeHead.transform.position.z + 300);
         Invoke("SpawnPickups", 5f);
     }
 

@@ -92,7 +92,11 @@ public class SnakeHead : MonoBehaviour
             Length --;
             for (int i = _snakeTail._bodyParts.Count; i > Length; i--) _snakeTail.RemoveBodyPart();
             PartsAmountText.SetText(Length.ToString());
-
+            if (Length <= 0)
+            {
+                Length = 0;
+                Die();
+            }
             obstacle.MinusParts--;
             obstacle.MinusPartsText.SetText(obstacle.MinusParts.ToString());
 
@@ -108,6 +112,9 @@ public class SnakeHead : MonoBehaviour
     {
         Game.OnReachedFinish();
         _snakeRigidBody.velocity = Vector3.zero;
+        ForwardSpeed = 0;
+        Sensitivity = 0;
+        Destroy(PickUpsPool);
 
     }
 
@@ -115,6 +122,8 @@ public class SnakeHead : MonoBehaviour
     {
         Game.OnDied();
         _snakeRigidBody.velocity = Vector3.zero;
+        ForwardSpeed = 0;
+        Sensitivity = 0;
         gameObject.SetActive(false);
         Shreds.SetActive(true);
         Shreds.transform.position = gameObject.transform.position;

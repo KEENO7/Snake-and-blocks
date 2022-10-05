@@ -7,8 +7,13 @@ public class SnakeHead : MonoBehaviour
 {
     public Game Game;
 
+<<<<<<< HEAD
     public float ForwardSpeed = 150;
     public float Sensitivity = 1000;
+=======
+    public float ForwardSpeed;
+    public float Sensitivity;
+>>>>>>> parent of e89f58b (Added Obstacle numbers)
     public int Length = 5;
 
     public TextMeshPro PartsAmountText;
@@ -20,10 +25,13 @@ public class SnakeHead : MonoBehaviour
     private Vector3 _touchLastPos;
     private float _sidewaysSpeed;
 
+<<<<<<< HEAD
     public BonusParts BP;
     public Obstacle Obstacle;
     public ObjectPool PickUpsPool;
 
+=======
+>>>>>>> parent of e89f58b (Added Obstacle numbers)
     public GameObject Shreds;
     public int Score
     {
@@ -61,13 +69,21 @@ public class SnakeHead : MonoBehaviour
             _sidewaysSpeed += delta.x * Sensitivity;
             _touchLastPos = _mainCamera.ScreenToViewportPoint(Input.mousePosition);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of e89f58b (Added Obstacle numbers)
         if (Input.GetKeyDown(KeyCode.A))
         {
             Length++;
             _snakeTail.AddBodyPart();
             PartsAmountText.SetText(Length.ToString());
         }
+<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.D))
+=======
+        if(Input.GetKeyDown(KeyCode.D))
+>>>>>>> parent of e89f58b (Added Obstacle numbers)
         {
             Length--;
             _snakeTail.RemoveBodyPart();
@@ -83,6 +99,7 @@ public class SnakeHead : MonoBehaviour
         _sidewaysSpeed = 0;
     }
 
+<<<<<<< HEAD
 
     private void OnTriggerEnter(Collider other)
     {
@@ -124,6 +141,8 @@ public class SnakeHead : MonoBehaviour
         }
 
     }
+=======
+>>>>>>> parent of e89f58b (Added Obstacle numbers)
 
     public void ReachFinish()
     {

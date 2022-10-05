@@ -264,8 +264,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5143926434041488655}
+<<<<<<< HEAD
   - component: {fileID: -4232293467664879375}
   - component: {fileID: -5770975329777777623}
+=======
+>>>>>>> parent of e89f58b (Added Obstacle numbers)
   m_Layer: 0
   m_Name: SnakeBodyParts
   m_TagString: Untagged
@@ -290,6 +293,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!65 &-4232293467664879375
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -317,3 +321,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BonusPartsTXT: {fileID: 1666663393235788383}
   Parts: 0
+=======
+>>>>>>> parent of e89f58b (Added Obstacle numbers)

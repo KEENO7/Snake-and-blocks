@@ -14,7 +14,8 @@ public class LevelGenerator : MonoBehaviour
     public Transform FinishGrid;
     public Transform WayRoot;
     public Game Game;
-    public SnakeHead SnakeHead;
+    public ObjectPool PickUpsPool;
+    public Transform SnakeHead;
 
     private void Awake()
     {
@@ -28,7 +29,6 @@ public class LevelGenerator : MonoBehaviour
             GameObject gridPrefab = i == 0 ? StartGridPrefab : GridPrefabs[prefabIndex];
             GameObject grid = Instantiate(gridPrefab, transform);
             grid.transform.localPosition = CalculateGridPosition(i);
-
         }
 
         FinishGrid.localPosition = CalculateGridPosition(GridCount);
@@ -37,6 +37,17 @@ public class LevelGenerator : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        SnakeHead = FindObjectOfType<SnakeHead>().transform;
+        SpawnPickups();
+    }
+
+    private void SpawnPickups()
+    {
+        PickUpsPool.GetObject().transform.position = new Vector3(-6f, 8.9f, SnakeHead.transform.position.z + 300);
+        Invoke("SpawnPickups", 5f);
+    }
     private int RandomRange(Random random, int min, int maxExclusive)
     {
         int number = random.Next();
@@ -47,6 +58,8 @@ public class LevelGenerator : MonoBehaviour
 
     private Vector3 CalculateGridPosition(int i)
     {
-        return new Vector3(-9.2f, 8.8f, DistanceBetweenGrids * i);
+        return new Vector3(-9f, 8.8f, DistanceBetweenGrids * i);
     }
+
+
 }

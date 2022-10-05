@@ -54,7 +54,6 @@ public class Game : MonoBehaviour
         if (CurrentState != State.Playing) return;
 
         CurrentState = State.Loose;
-        //SnakeHead.enabled = false;
         Debug.Log("Game over!");
         PlayerPrefs.SetInt("Score", 0);
         LosScreen.SetActive(true);
@@ -66,8 +65,6 @@ public class Game : MonoBehaviour
     {
         if (CurrentState != State.Playing) return;
         CurrentState = State.Win;
-        SnakeHead.ForwardSpeed = 0;
-        SnakeHead.Sensitivity = 0;
         LevelIndex++;
         Debug.Log("Stage cleared!");
         WinScreen.SetActive(true);

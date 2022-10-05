@@ -5,18 +5,17 @@ using UnityEngine;
 public class SnakeTail : MonoBehaviour
 {
     public Transform SnakeHead;
-    public Transform SnakePart;
+    public Transform SnakeCircle;
     public float CircleDiameter;
 
-    private List<Transform> _bodyParts = new List<Transform>();
-    private List<Vector3> _positions = new List<Vector3>();
+    internal List<Transform> _bodyParts = new List<Transform>();
+    internal List<Vector3> _positions = new List<Vector3>();
 
     void Start()
     {
         _positions.Add(SnakeHead.position);
     }
 
-    // Update is called once per frame
     void Update()
     {
         float distance = ((Vector3)SnakeHead.position - _positions[0]).magnitude;
@@ -38,7 +37,7 @@ public class SnakeTail : MonoBehaviour
 
     public void AddBodyPart()
     {
-      Transform part = Instantiate(SnakePart, _positions[_positions.Count - 1], Quaternion.identity, transform);
+      Transform part = Instantiate(SnakeCircle, _positions[_positions.Count - 1], Quaternion.identity, transform);
         _bodyParts.Add(part);
         _positions.Add(part.position);
     }
@@ -47,6 +46,6 @@ public class SnakeTail : MonoBehaviour
     {
         Destroy(_bodyParts[0].gameObject);
         _bodyParts.RemoveAt(0);
-        _positions.RemoveAt(1);
+        _positions.RemoveAt(_positions.Count -1);
     }
 }

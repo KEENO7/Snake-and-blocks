@@ -44,8 +44,6 @@ public class SnakeHead : MonoBehaviour
 
   
         for (int i = _snakeTail._bodyParts.Count; i < Length; i++) _snakeTail.AddBodyPart();
-
- 
         PartsAmountText.SetText(Length.ToString());
 
     }
@@ -67,18 +65,6 @@ public class SnakeHead : MonoBehaviour
             _touchLastPos = _mainCamera.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Length++;
-            _snakeTail.AddBodyPart();
-            PartsAmountText.SetText(Length.ToString());
-        }
-        if(Input.GetKeyDown(KeyCode.D))
-        {
-            Length--;
-            _snakeTail.RemoveBodyPart();
-            PartsAmountText.SetText(Length.ToString());
-        }
     }
 
     private void FixedUpdate()

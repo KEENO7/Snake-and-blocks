@@ -5,7 +5,7 @@ using UnityEngine;
 public class SnakeTail : MonoBehaviour
 {
     public Transform SnakeHead;
-    public Transform SnakePart;
+    public Transform SnakeCircle;
     public float CircleDiameter;
 
     internal List<Transform> _bodyParts = new List<Transform>();
@@ -38,7 +38,7 @@ public class SnakeTail : MonoBehaviour
 
     public void AddBodyPart()
     {
-      Transform part = Instantiate(SnakePart, _positions[_positions.Count - 1], Quaternion.identity, transform);
+      Transform part = Instantiate(SnakeCircle, _positions[_positions.Count - 1], Quaternion.identity, transform);
         _bodyParts.Add(part);
         _positions.Add(part.position);
     }

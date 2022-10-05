@@ -58,7 +58,7 @@ public class LevelGenerator : MonoBehaviour
 
     private Vector3 CalculateGridPosition(int i)
     {
-        return new Vector3(-9f, 8.8f, DistanceBetweenGrids * i);
+        return new Vector3(-9.2f, 8.8f, DistanceBetweenGrids * i);
     }
 
 

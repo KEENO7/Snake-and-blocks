@@ -1120,6 +1120,11 @@ MonoBehaviour:
   WinScreen: {fileID: 1059769739}
   LosScreen: {fileID: 639107551}
   MusicSpring: {fileID: 0}
+--- !u!1 &559345917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2686627114849223130, guid: 9b2889c2a99daa14b93af812c64f3116, type: 3}
+  m_PrefabInstance: {fileID: 6744036553936954749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &639107551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983066263}
   - component: {fileID: 983066264}
+  - component: {fileID: 983066265}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1732,6 +1738,23 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &983066265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983066262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0dba5ad855532e4f846b760f8ca22d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnakeHead: {fileID: 559345917}
+  FinishGrid: {fileID: 1490016191}
+  Slider: {fileID: 983066264}
+  MaximumReachedZ: 0
+  AcceptableFinishPlayerDistance: 0
 --- !u!1 &1034169434
 GameObject:
   m_ObjectHideFlags: 0

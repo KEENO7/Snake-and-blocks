@@ -39,7 +39,7 @@ public class SnakeHead : MonoBehaviour
         _snakeRigidBody = GetComponent<Rigidbody>();
         _snakeTail = GetComponent<SnakeTail>();
   
-        for (int i = 0; i < Length; i++) _snakeTail.AddBodyPart();
+        for (int i = _snakeTail._bodyParts.Count; i < Length; i++) _snakeTail.AddBodyPart();
  
         PartsAmountText.SetText(Length.ToString());
 
@@ -78,7 +78,7 @@ public class SnakeHead : MonoBehaviour
         {
             Length += BP.Parts;
             Destroy(parts.gameObject);
-            for (int i = 0; i < Length; i++) _snakeTail.AddBodyPart();
+            for (int i = _snakeTail._bodyParts.Count; i < Length; i++) _snakeTail.AddBodyPart();
 
             PartsAmountText.SetText(Length.ToString());
         }

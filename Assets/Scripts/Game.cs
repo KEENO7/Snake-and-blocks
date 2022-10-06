@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -58,6 +56,7 @@ public class Game : MonoBehaviour
         CurrentState = State.Loose;
         SnakeHead.ForwardSpeed = 0;
         SnakeHead.Sensitivity = 0;
+        SnakeHead.gameObject.SetActive(false);
         Debug.Log("Game over!");
         PlayerPrefs.SetInt("Score", 0);
         LosScreen.SetActive(true);

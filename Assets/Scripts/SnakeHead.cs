@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -132,7 +130,5 @@ public class SnakeHead : MonoBehaviour
         ForwardSpeed = 0;
         Sensitivity = 0;
         gameObject.SetActive(false);
-        Shreds.SetActive(true);
-        Shreds.transform.position = gameObject.transform.position;
     }
 }

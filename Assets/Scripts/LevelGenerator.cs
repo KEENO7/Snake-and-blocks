@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
@@ -11,12 +9,15 @@ public class LevelGenerator : MonoBehaviour
     public int MinGrids;
     public int MaxGrids;
     public float DistanceBetweenGrids;
+
     public Transform FinishGrid;
     public Transform WayRoot;
+
     public Game Game;
+    public Transform SnakeHead;
 
     public ObjectPool PickUpsPool;
-    public Transform SnakeHead;
+
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class LevelGenerator : MonoBehaviour
 
         }
 
+
         FinishGrid.localPosition = CalculateGridPosition(GridCount);
 
         WayRoot.localScale = new Vector3(1, 1, GridCount * 1.55f + 0.6f);
@@ -41,6 +43,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void Start()
     {
+
         SnakeHead = FindObjectOfType<SnakeHead>().transform;
         SpawnPickups();
     }

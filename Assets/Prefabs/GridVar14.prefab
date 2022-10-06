@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1309144802936807300, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: Gradient
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c8394f42cef7524ea1affacbb5ab6b7, type: 2}
     - target: {fileID: 1623739567925065241, guid: aad74f200b5e5974fae222665af5099d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -63,9 +67,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3798922937314942515, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4ffe76ca309e1e94099be22c9ebb17f7, type: 2}
+    - target: {fileID: 5037634186089553183, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c8394f42cef7524ea1affacbb5ab6b7, type: 2}
+    - target: {fileID: 7168109453099539624, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: Gradient
+      value: 
+      objectReference: {fileID: 2100000, guid: 4ffe76ca309e1e94099be22c9ebb17f7, type: 2}
     - target: {fileID: 8974055123598142109, guid: aad74f200b5e5974fae222665af5099d, type: 3}
       propertyPath: m_Name
-      value: GreedVar14
+      value: GridVar14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad74f200b5e5974fae222665af5099d, type: 3}

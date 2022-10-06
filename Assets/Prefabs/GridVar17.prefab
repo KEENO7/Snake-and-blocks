@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1874009368277276765, guid: d406168d2f711bd448d81cbc6e0c4fbd, type: 3}
+      propertyPath: Gradient
+      value: 
+      objectReference: {fileID: 2100000, guid: 90e4b46f093291f4280ac7ae8831384c, type: 2}
     - target: {fileID: 2794276982592724284, guid: d406168d2f711bd448d81cbc6e0c4fbd, type: 3}
       propertyPath: m_Name
-      value: Greed Var17
+      value: GridVar17
       objectReference: {fileID: 0}
     - target: {fileID: 5102917519556112671, guid: d406168d2f711bd448d81cbc6e0c4fbd, type: 3}
       propertyPath: m_RootOrder
@@ -55,6 +59,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5603481028162771654, guid: d406168d2f711bd448d81cbc6e0c4fbd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90e4b46f093291f4280ac7ae8831384c, type: 2}
     - target: {fileID: 5603481028162771675, guid: d406168d2f711bd448d81cbc6e0c4fbd, type: 3}
       propertyPath: m_IsActive
       value: 1

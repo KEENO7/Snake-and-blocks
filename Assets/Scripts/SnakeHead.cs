@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class SnakeHead : MonoBehaviour
 {
@@ -10,17 +9,21 @@ public class SnakeHead : MonoBehaviour
     public float ForwardSpeed;
     public float Sensitivity;
     public int Length = 1;
-
-    public TextMeshPro PartsAmountText;
-
-    private Camera _mainCamera;
     private Rigidbody _snakeRigidBody;
     internal SnakeTail _snakeTail;
+
+    public TextMeshPro PartsAmountText;
+    public Text ScoreText;
+    public Text CurrentLevelText;
+    public Text NextLevelText;
+
+    private Camera _mainCamera;
 
     private Vector3 _touchLastPos;
     private float _sidewaysSpeed;
 
     public Obstacle Obstacle;
+
     public ObjectPool PickUpsPool;
 
     public GameObject Shreds;
@@ -61,7 +64,9 @@ public class SnakeHead : MonoBehaviour
             _sidewaysSpeed += delta.x * Sensitivity;
             _touchLastPos = _mainCamera.ScreenToViewportPoint(Input.mousePosition);
         }
-
+        ScoreText.text = Score.ToString();
+        CurrentLevelText.text = (Game.LevelIndex + 1).ToString();
+        NextLevelText.text = (Game.LevelIndex + 2).ToString();
     }
 
     private void FixedUpdate()
@@ -99,7 +104,8 @@ public class SnakeHead : MonoBehaviour
             }
             obstacle.MinusParts--;
             obstacle.MinusPartsText.SetText(obstacle.MinusParts.ToString());
-
+            Score += 100;
+            ScoreText.text = Score.ToString();
             if (obstacle.MinusParts == 0)
             {
               Destroy(obstacle.gameObject);
@@ -114,8 +120,7 @@ public class SnakeHead : MonoBehaviour
         _snakeRigidBody.velocity = Vector3.zero;
         ForwardSpeed = 0;
         Sensitivity = 0;
-        Destroy(PickUpsPool);
-
+        Score += 50*_snakeTail._bodyParts.Count;
     }
 
     public void Die()
@@ -125,7 +130,5 @@ public class SnakeHead : MonoBehaviour
         ForwardSpeed = 0;
         Sensitivity = 0;
         gameObject.SetActive(false);
-        Shreds.SetActive(true);
-        Shreds.transform.position = gameObject.transform.position;
     }
 }

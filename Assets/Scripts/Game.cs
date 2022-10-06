@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -11,6 +9,7 @@ public class Game : MonoBehaviour
     public GameObject WinScreen;
     public GameObject LosScreen;
     public GameObject MusicSpring;
+
 
 
     public enum State
@@ -57,6 +56,7 @@ public class Game : MonoBehaviour
         CurrentState = State.Loose;
         SnakeHead.ForwardSpeed = 0;
         SnakeHead.Sensitivity = 0;
+        SnakeHead.gameObject.SetActive(false);
         Debug.Log("Game over!");
         PlayerPrefs.SetInt("Score", 0);
         LosScreen.SetActive(true);
@@ -70,6 +70,7 @@ public class Game : MonoBehaviour
         CurrentState = State.Win;
         SnakeHead.ForwardSpeed = 0;
         SnakeHead.Sensitivity = 0;
+        SnakeHead.Score += 50 * SnakeHead._snakeTail._bodyParts.Count;
         LevelIndex++;
         Debug.Log("Stage cleared!");
         WinScreen.SetActive(true);

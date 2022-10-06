@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 977770038576972618, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7592841a4ea374c41a13f4e422352560, type: 2}
+    - target: {fileID: 1623739567925065220, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ec0cfadd0c9131489486da3e5034516, type: 2}
     - target: {fileID: 1697553338874359162, guid: aad74f200b5e5974fae222665af5099d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -55,13 +63,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3798922937314942515, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ebe0bb3719b77a42beebcf993a2a340, type: 2}
+    - target: {fileID: 4704835894753424543, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: Gradient
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ec0cfadd0c9131489486da3e5034516, type: 2}
     - target: {fileID: 5037634186089553154, guid: aad74f200b5e5974fae222665af5099d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6508824554658660817, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: Gradient
+      value: 
+      objectReference: {fileID: 2100000, guid: 7592841a4ea374c41a13f4e422352560, type: 2}
+    - target: {fileID: 7168109453099539624, guid: aad74f200b5e5974fae222665af5099d, type: 3}
+      propertyPath: Gradient
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ebe0bb3719b77a42beebcf993a2a340, type: 2}
     - target: {fileID: 8974055123598142109, guid: aad74f200b5e5974fae222665af5099d, type: 3}
       propertyPath: m_Name
-      value: GreedVar9
+      value: GridVar9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad74f200b5e5974fae222665af5099d, type: 3}

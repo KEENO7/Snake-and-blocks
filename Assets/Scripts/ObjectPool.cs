@@ -23,7 +23,7 @@ public class ObjectPool : MonoBehaviour
     {
         index++;
         if (index >= Amount) index = 0;
-
+        
         Prefabs[index].SetActive(true);
         return Prefabs[index];
     }

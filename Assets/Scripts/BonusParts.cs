@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class BonusParts : MonoBehaviour
@@ -9,7 +10,7 @@ public class BonusParts : MonoBehaviour
     private void OnEnable()
     {     
         Parts = Random.Range(3, 10);
-        BonusPartsText.SetText(Parts.ToString());
+        BonusPartsText.text = Parts.ToString();
 
     }
 }

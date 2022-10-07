@@ -4,6 +4,7 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     public SnakeHead SnakeHead;
+    public GameObject SnakeDeath;
     public ObjectPool PickUpsPool;
 
     public GameObject WinScreen;
@@ -56,7 +57,10 @@ public class Game : MonoBehaviour
         CurrentState = State.Loose;
         SnakeHead.ForwardSpeed = 0;
         SnakeHead.Sensitivity = 0;
+        SnakeDeath.transform.position =  SnakeHead.transform.position;
+        SnakeDeath.SetActive(true);
         SnakeHead.gameObject.SetActive(false);
+       Destroy(SnakeDeath, 1f);
         Debug.Log("Game over!");
         PlayerPrefs.SetInt("Score", 0);
         LosScreen.SetActive(true);

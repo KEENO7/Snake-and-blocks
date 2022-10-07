@@ -9,13 +9,12 @@ public class SnakeTail : MonoBehaviour
 
     internal List<Transform> _bodyParts = new List<Transform>();
     internal List<Vector3> _positions = new List<Vector3>();
-
+   
     void Start()
     {
         _positions.Add(SnakeHead.position);
     }
 
-    // Update is called once per frame
     void Update()
     {
         float distance = ((Vector3)SnakeHead.position - _positions[0]).magnitude;

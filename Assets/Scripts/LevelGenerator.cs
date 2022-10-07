@@ -48,10 +48,19 @@ public class LevelGenerator : MonoBehaviour
         SpawnPickups();
     }
 
-    private void SpawnPickups()
+    private void Update()
     {
-        PickUpsPool.GetObject().transform.position = new Vector3(-6f, 8.9f, SnakeHead.transform.position.z + 260);
-        Invoke("SpawnPickups", 5f);
+        float distance = FinishGrid.position.z - SnakeHead.position.magnitude;
+        if(distance < 700)
+        {
+            CancelInvoke("SpawnPickups");
+        }
+    }
+
+    private void SpawnPickups()
+    {   
+            PickUpsPool.GetObject().transform.position = new Vector3(-2f, 8.9f, SnakeHead.transform.position.z + 260);
+            Invoke("SpawnPickups", 5f);
     }
 
     private int RandomRange(Random random, int min, int maxExclusive)

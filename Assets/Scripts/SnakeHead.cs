@@ -1,6 +1,6 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using TMPro;
 
 public class SnakeHead : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class SnakeHead : MonoBehaviour
     private Rigidbody _snakeRigidBody;
     internal SnakeTail _snakeTail;
 
-    public TextMeshPro PartsAmountText;
+    public TextMeshPro  PartsAmountText;
     public Text ScoreText;
     public Text CurrentLevelText;
     public Text NextLevelText;
@@ -22,11 +22,9 @@ public class SnakeHead : MonoBehaviour
     private Vector3 _touchLastPos;
     private float _sidewaysSpeed;
 
-    public Obstacle Obstacle;
-
     public ObjectPool PickUpsPool;
 
-    public GameObject Shreds;
+    public AudioSource[] SoundEffects;
     public int Score
     {
         get => PlayerPrefs.GetInt("Score", 0);
@@ -44,7 +42,7 @@ public class SnakeHead : MonoBehaviour
   
         for (int i = _snakeTail._bodyParts.Count; i < Length; i++) _snakeTail.AddBodyPart();
  
-        PartsAmountText.SetText(Length.ToString());
+        PartsAmountText.text = Length.ToString();
 
     }
 
@@ -82,10 +80,13 @@ public class SnakeHead : MonoBehaviour
         if (other.TryGetComponent(out BonusParts parts))
         {
             Length += parts.Parts;
-            Destroy(parts.gameObject);
+            SoundEffects[0].Play();
+            parts.gameObject.SetActive(false);
+
             for (int i = _snakeTail._bodyParts.Count; i < Length; i++) _snakeTail.AddBodyPart();
 
-            PartsAmountText.SetText(Length.ToString());
+            PartsAmountText.text = Length.ToString();
+
         }
 
     }
@@ -96,16 +97,18 @@ public class SnakeHead : MonoBehaviour
         {
             Length --;
             for (int i = _snakeTail._bodyParts.Count; i > Length; i--) _snakeTail.RemoveBodyPart();
-            PartsAmountText.SetText(Length.ToString());
+            PartsAmountText.text = Length.ToString() ;
             if (Length <= 0)
             {
                 Length = 0;
                 Die();
             }
+            SoundEffects[1].Play();
             obstacle.MinusParts--;
-            obstacle.MinusPartsText.SetText(obstacle.MinusParts.ToString());
+            obstacle.MinusPartsText.text = obstacle.MinusParts.ToString();
             Score += 100;
             ScoreText.text = Score.ToString();
+
             if (obstacle.MinusParts == 0)
             {
               Destroy(obstacle.gameObject);

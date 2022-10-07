@@ -37,7 +37,7 @@ public class LevelGenerator : MonoBehaviour
 
         FinishGrid.localPosition = CalculateGridPosition(GridCount);
 
-        WayRoot.localScale = new Vector3(1, 1, GridCount * 1.55f + 0.6f);
+        WayRoot.localScale = new Vector3(1, 1, GridCount * 2f + 0.6f);
 
     }
 

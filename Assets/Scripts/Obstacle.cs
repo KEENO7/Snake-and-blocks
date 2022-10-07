@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Obstacle : MonoBehaviour
@@ -10,8 +11,13 @@ public class Obstacle : MonoBehaviour
     private void Start()
     {
         MinusParts = Random.Range(1, 30);
-        MinusPartsText.SetText(MinusParts.ToString());
-        gameObject.GetComponentInChildren<Renderer>().material.SetFloat("_BlockValue", 0.08f * MinusParts);
+        MinusPartsText.text  = MinusParts.ToString();
+        Coloring();
     }
 
+    private void Coloring()
+    {
+        gameObject.GetComponentInChildren<Renderer>().material.SetFloat("_BlockValue", 0.04f * MinusParts);
+        Invoke("Coloring", 0.01f);
+    }
 }
